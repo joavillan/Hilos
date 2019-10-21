@@ -1,4 +1,4 @@
-package ej3;
+package ej5;
 
 import java.applet.Applet;
 import java.awt.*;
@@ -25,7 +25,7 @@ public class ContadorApplet extends Applet implements ActionListener{
 			while (!paro) {
 				try {
 					Thread.sleep(300);
-				} catch (Exception e) {
+				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 				repaint();
@@ -75,12 +75,10 @@ public class ContadorApplet extends Applet implements ActionListener{
 		// TODO Auto-generated method stub
 		if(e.getSource()==b1) {
 			b1.setLabel("Hilo 1 Finalizado");
-			h1.stop();
-			//h1.setParar();
+			h1.interrupt();
 		}else {
 			b2.setLabel("Hilo 2 Finalizado");
-			//h2.setParar();
-			h2.stop();		}
+			h2.interrupt();;		}
 	}
 	
 	public void stop() {
